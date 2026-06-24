@@ -17,7 +17,10 @@ from urllib.parse import urljoin
 # ==========================================
 # Configuration (Token & Owner ID)
 # ==========================================
-TOKEN = "8194368281:AAESKLd3SRCbgdPKxJVNzeoGFkafby7zDZY"
+import os
+TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+if not TOKEN:
+    raise ValueError("TELEGRAM_BOT_TOKEN environment variable not set")
 BASE_URL = f"https://api.telegram.org/bot{TOKEN}"
 FILE_URL = f"https://api.telegram.org/file/bot{TOKEN}/"
 
